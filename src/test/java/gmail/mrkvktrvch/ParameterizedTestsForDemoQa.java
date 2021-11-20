@@ -1,5 +1,4 @@
 package gmail.mrkvktrvch;
-
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -7,11 +6,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-
 
 public class ParameterizedTestsForDemoQa {
 
@@ -19,8 +16,6 @@ public class ParameterizedTestsForDemoQa {
     @ParameterizedTest(name = "Проверка отображения корма брэнда {0}")
     @ValueSource(strings = {"Almo Nature", "Applaws"})
     void searchFeedFromDifferentBrandsTest(String brandName) {
-
-
         open("https://www.petshop.ru/");
         $(".MuiInputBase-input").setValue(brandName).pressEnter();
         $("#catalogue-wrapper").shouldHave(text(brandName));
@@ -47,7 +42,7 @@ public class ParameterizedTestsForDemoQa {
         $("#department").setValue(inputDepartment);
         $("#submit").click();
         $(".rt-table").shouldHave(text(inputFirstname), text(inputLastName), text(inputEmail), text(inputAge),
-        text(inputSalary), text(inputDepartment));
+                text(inputSalary), text(inputDepartment));
     }
 
     @EnumSource(UsersList.class)
@@ -67,13 +62,3 @@ public class ParameterizedTestsForDemoQa {
                 text(usersList.getAge()), text(usersList.getSalary()), text(usersList.getDepartment()));
     }
 }
-
-
-
-
-
-
-
-
-
-
