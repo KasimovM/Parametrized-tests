@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class ParameterizedTestsForDemoQa {
+public class ParameterizedTests {
 
     @DisplayName("Поиск корма различных брэндов")
     @ParameterizedTest(name = "Проверка отображения корма брэнда {0}")
