@@ -21,7 +21,7 @@ public class ParameterizedTests {
             "Applaws"
     })
 
-    void searchFeedFromDifferentBrandsTest(String brandName) {
+    void searchFeedFromDifferentBrandsTestWithValueSource(String brandName) {
 
         open("https://www.petshop.ru/");
         $(".MuiInputBase-input").setValue(brandName).pressEnter();
@@ -36,20 +36,20 @@ public class ParameterizedTests {
             "Ivan | Petrov | yasobaka@mail.com | 35 |50000| Security"},
             delimiter = '|')
 
-    void addNewEmployeeTest(String inputFirstname, String inputLastName, String inputEmail, String inputAge, String inputSalary,
-                            String inputDepartment) {
+    void addNewEmployeeTestWithCsvSource(String firstname, String lastName, String email, String age, String salary,
+                            String department) {
 
         Selenide.open("https://demoqa.com/webtables");
         $("#addNewRecordButton").click();
-        $("#firstName").setValue(inputFirstname);
-        $("#lastName").setValue(inputLastName);
-        $("#userEmail").setValue(inputEmail);
-        $("#age").setValue(inputAge);
-        $("#salary").setValue(inputSalary);
-        $("#department").setValue(inputDepartment);
+        $("#firstName").setValue(firstname);
+        $("#lastName").setValue(lastName);
+        $("#userEmail").setValue(email);
+        $("#age").setValue(age);
+        $("#salary").setValue(salary);
+        $("#department").setValue(department);
         $("#submit").click();
-        $(".rt-table").shouldHave(text(inputFirstname), text(inputLastName), text(inputEmail), text(inputAge),
-                text(inputSalary), text(inputDepartment));
+        $(".rt-table").shouldHave(text(firstname), text(lastName), text(email), text(age),
+                text(salary), text(department));
     }
 
     @EnumSource(UsersList.class)
